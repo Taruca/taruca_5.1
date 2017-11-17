@@ -5,6 +5,7 @@
     <title>Taruca</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="/assets/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -48,7 +49,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
     <!-- navbar开始 -->
-    @include('shared.backend_nav');
+    @include('shared.backend_nav')
     <!-- navbar结束 -->
 
     <!-- 侧边栏开始 -->
@@ -292,11 +293,10 @@
 <script src="/assets/adminlte/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="/assets/adminlte/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/assets/adminlte/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/assets/adminlte/dist/js/demo.js"></script>
+<script src="/assets/global/vue.js"></script>
 
+<script src="/assets/global/ajaxset.js?v=2"></script>
+<script src="/assets/global/common.js?v=2"></script>
 @yield('js')
 </body>
 </html>

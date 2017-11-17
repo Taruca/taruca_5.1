@@ -6,9 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
+    protected $guarded = [];
+
+    public function scopeActive($query) {
+        return $query->where('hide', 0);
+    }
+
     public function getAllMenus() {
-        //todo 按格式获取菜单字段，并于页面用blade模版生成菜单样式
-        $menus = $this->all();
+        $menus = $this->select('id', 'parent_id', 'icon', 'name', 'route', 'sort')
+            ->orderBy('parent_id', 'sort')->get()->groupBy('parent_id');
+        return $menus;
+    }
+
+    public function getActiveMenus() {
+        $menus = $this->select('id', 'parent_id', 'icon', 'name', 'route', 'sort')
+            ->active()->orderBy('parent_id', 'sort')->get()->groupBy('parent_id');
         return $menus;
     }
 }
