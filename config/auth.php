@@ -64,4 +64,12 @@ return [
         'expire' => 60,
     ],
 
+    /*
+     * 自定义
+     */
+    'userLevel' => [
+        'admin' => 1,
+        'vip' => 2,
+        'user' => 3,
+    ],
 ];
